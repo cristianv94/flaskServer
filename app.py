@@ -6,6 +6,10 @@ import json
 import base64
 from urllib.parse import unquote
 
+import os
+port = int(os.environ.get("PORT", 5000))	
+PORT_NUMBER = port
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -23,5 +27,5 @@ def buscar():
 
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0',ssl_context='adhoc',debug = True)
+	app.run(host='0.0.0.0',port=PORT_NUMBER,debug = True)
 1
