@@ -3,11 +3,13 @@
 function LED1_On() {
 	alert("led on");
 	console.log("led on");
+	document.getElementById("sensor").innerHTML="led on";
   
 }
 function LED1_Off(){	
 	alert("led off");
 	console.log("led off");
+	document.getElementById("sensor").innerHTML="led off";
 }
 
 
@@ -37,12 +39,12 @@ function LED1_Off(){
   // called when the client connects
   function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
-    console.log("onConnect");
+    console.log("Conectado...");
 	
-    client.subscribe("/cloudmqtt");
-    message = new Paho.MQTT.Message("ll:Hello: CloudMQTT");
-    message.destinationName = "/cloudmqtt";
-    
+    client.subscribe("lfrenteriax@hotmail.com/test");
+    message = new Paho.MQTT.Message("hola desde la web");
+    message.destinationName = "lfrenteriax@hotmail.com/test1";
+    client.send(message);
 	
   }
 
@@ -61,6 +63,5 @@ function LED1_Off(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	doAction(message.payloadString);
   }
   
