@@ -24,7 +24,7 @@ function LED1_Off(){
   client.onConnectionLost = onConnectionLost;
   client.onMessageArrived = onMessageArrived;
   var options = {
-    useSSL: true,
+   // useSSL: true,
     userName: "lfrenteriax@hotmail.com",
     password: "lfrenteriax",
     onSuccess:onConnect,
