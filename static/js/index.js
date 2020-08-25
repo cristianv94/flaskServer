@@ -59,9 +59,9 @@ function LED1_Off(){
       console.log("onConnectionLost:"+responseObject.errorMessage);
     }
   }
-
-  // called when a message arrives
-  function onMessageArrived(message) {
-    console.log("onMessageArrived:"+message.payloadString);
-  }
-  
+ // called when a message arrives
+ function onMessageArrived(message) {
+	console.log("Nuevo mensaje:"+message.payloadString);
+	document.getElementById("sensor").innerHTML=message.payloadString.split("=")[1];
+ }
+ 
